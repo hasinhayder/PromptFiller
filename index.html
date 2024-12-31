@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center">
+<body class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center dark:bg-gray-700">
     <!-- Top Right Corner Icons -->
     <div class="absolute top-4 right-4 flex space-x-4">
         <a href="https://github.com/hasinhayder/PromptFiller" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-500">
@@ -31,7 +31,7 @@
             <a href="/sample-prompts.txt" target="_blank" class="text-blue-500 hover:text-blue-600">Sample Prompts</a>
         </div>
         <!-- Prompt Input -->
-        <textarea id="prompt" x-ref="prompt" x-model="prompt" @input="extractPlaceholders" class="w-full h-[120px] p-3 border rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" placeholder="Paste your prompt here..."></textarea>
+        <textarea id="prompt" x-ref="prompt" x-model="prompt" @input="extractPlaceholders" class="w-full h-[120px] p-3 border rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300" placeholder="Paste your prompt here..."></textarea>
 
         <!-- Placeholder Inputs -->
         <div class="mt-4" x-show="placeholders.length">
@@ -52,7 +52,7 @@
                     Copy
                 </button>
             </div>
-            <textarea x-model="finalText" readonly class="w-full h-[120px] mt-2 p-3 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 focus:outline-none" placeholder="Final prompt will appear here..."></textarea>
+            <textarea x-model="finalText" readonly class="w-full h-[120px] mt-2 p-3 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 focus:outline-none" placeholder="Final prompt will appear here..."></textarea>
         </div>
 
         <!-- Footer -->

@@ -36,7 +36,7 @@
         </div>
 
         <!-- Prompt Input -->
-        <textarea id="prompt" x-ref="prompt" x-model="prompt" @input="extractPlaceholders"
+        <textarea id="prompt" x-ref="prompt" x-model="prompt" @input="saveToLocalStorage(); extractPlaceholders();"
             class="w-full h-[120px] p-3 border rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Paste your prompt here..."></textarea>
 
@@ -94,7 +94,7 @@
             <template x-for="(prompt, index) in prompts" :key="index">
                 <div class="bg-gray-100 p-4 rounded-lg shadow flex justify-between items-center gap-5">
                     <div x-text="prompt.text"></div>
-                    <button @click="$dispatch('fill-prompt', prompt.text); page = 'main';"
+                    <button @click="$dispatch('fill-prompt', prompt.text); page = 'main'; localStorage.setItem('prompt', prompt.text);"
                         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Use</button>
                 </div>
             </template>

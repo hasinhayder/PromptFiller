@@ -1,9 +1,14 @@
 function promptFiller() {
     return {
-        prompt: '',
+        prompt: localStorage.getItem('prompt') || '',
         placeholders: [],
         values: {},
         finalText: '',
+
+        init() {
+            // Run extractPlaceholders() on initialization
+            this.extractPlaceholders();
+        },
 
         extractPlaceholders() {
             this.placeholders = [...new Set((this.prompt.match(/[\[{](.*?)[\]}]/g) || []).map(m => m.slice(1, -1)))];
@@ -34,7 +39,11 @@ function promptFiller() {
             this.prompt = newPrompt;
             this.extractPlaceholders();
             this.updateFinalText();
-        }
+        },
+
+        saveToLocalStorage() {
+            localStorage.setItem('prompt', this.prompt);
+        },
     };
 }
 
